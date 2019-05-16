@@ -56,7 +56,7 @@ var cases = [
         project: 'CUNYfirst',
         next: 'lovemama',
         prev: 'portfolio',
-        href: 'https://github.com/d-otero/cunyfirst-react.git',
+        href: 'https://cunyfirst-react.netlify.com',
         name: 'CUNYfirst Homepage in React',
         platform: 'Mobile App',
         role: 'Developer | Product Designer',
