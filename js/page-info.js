@@ -25,7 +25,7 @@ var cases = [
         project: 'Love Mama',
         next: 'portfolio',
         prev: 'cunyfirst',
-        href: 'https://github.com/d-otero/lovemama.git',
+        href: 'https://d-otero.github.io/lovemama/',
         name: 'Love Mama Overhaul',
         platform: 'Web & Mobile',
         role: 'Development | UX/UI | A.I.',
