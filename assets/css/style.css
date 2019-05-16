@@ -113,6 +113,11 @@ table {
   color: #FFFFFF;
 }
 
+.primary-red {
+  background: #ff5757;
+  color: #FFFFFF;
+}
+
 .primary-white {
   background: #FFFFFF;
   color: #1e1e1e;
@@ -228,7 +233,7 @@ a:hover {
 
 image-caption {
   display: block;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-weight: 600;
   z-index: 2;
   text-align: center;
@@ -417,7 +422,6 @@ button.cuny-secondary:focus, button.cuny-secondary:hover {
   padding: 1rem;
   -ms-flex-item-align: end;
   align-self: flex-end;
-  background: rgba(62, 62, 62, 0.5);
   stroke: #1e1e1e;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -485,7 +489,6 @@ button.cuny-secondary:focus, button.cuny-secondary:hover {
   }
 }
 .circle-arrow:hover {
-  background: #1e1e1e;
   stroke: #FFFFFF;
   opacity: 1;
 }
@@ -1180,17 +1183,6 @@ img {
 .section-title {
   grid-row: 2/3;
   grid-column: 1/-1;
-}
-
-.progress-bar {
-  width: 0%;
-  position: fixed;
-  left: 0;
-  top: 60px;
-  height: 0.25rem;
-  background: #32a456;
-  background: -webkit-gradient(linear, left top, right top, from(#32a456), to(#48d943));
-  background: linear-gradient(90deg, #32a456 0%, #48d943 100%);
 }
 
 * {

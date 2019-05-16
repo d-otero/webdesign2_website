@@ -57,15 +57,15 @@ function templateConstructor(p) {
         projects +=
         `
         <section class="project-preview ${p[i].primaryColor}" data-project-name='${p[i].href}'>
-        <div class="image__container-md">
+        <div class="image__container-xl">
             <img src="images/${p[i].image}" alt="">
         </div>
             <div class="info-container">
                 <h2 class="bold">${p[i].name}</h2>
                 <p class="${p[i].descColor}">${p[i].role}</p>
-                <svg class="button circle-arrow ${p[i].buttonColor}" data-href="${p[i].href}" width="49" height="40" viewBox="0 0 49 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a class="button circle-arrow ${p[i].buttonColor}" href="${p[i].href}" target="_blank"><svg width="49" height="40" viewBox="0 0 49 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 20H46M46 20L28 2M46 20L28 38" stroke-width="4" stroke-linecap="round"/>
-                </svg>
+                </svg></a>
             </div>
         </section>
         `
@@ -73,137 +73,4 @@ function templateConstructor(p) {
     return projects;
 };
 
-var csVisual = templateConstructor(visual);
 homeContainer.innerHTML = templateConstructor(cases);
-homeContainer.insertAdjacentHTML('beforeend',csVisual);
-
-
-
-
-const master = (p) => {
-    let caseStudy = '';
-    //CASE STUDY TEMPLATE
-    caseStudy +=
-        `
-    <section class="cs-container">
-    <svg class="button circle-arrow back-button ${p.buttonColor}" data-href="#${p.prev}" width="49" height="40" viewBox="0 0 49 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 20H46M46 20L28 2M46 20L28 38" stroke-width="4" stroke-linecap="round"/>
-    </svg>
-    <svg class="button circle-arrow next-button ${p.buttonColor}" data-href="#${p.next}" width="49" height="40" viewBox="0 0 49 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 20H46M46 20L28 2M46 20L28 38" stroke-width="4" stroke-linecap="round"/>
-    </svg>
-        <section class="content__full" data-section-name="Let's Begin!">
-            <section class="content__block-info ${p.secondaryColor}">
-                <h2>${p.name}</h2>
-                <h3>${p.project} <title-caption> (${p.platform})</title-caption></h3>
-                <h4>${p.role}</h4>
-                <h2 class="section-name">Overview</h2>
-                <p>${p.summary.overview}</p>
-            </section>
-            <section class="image__container-lg ${p.primaryColor}">
-            <img class="video" src="images/${p.image}" alt="">
-        </section>
-    </section>
-
-        <section class="content__block content__block-list" data-section-name="Spoilers">
-            <h2 class="section-name">SPOILERS <title-caption class="${p.secondaryColor}-text"></br>It's okay to skim. I won't notice</title-caption></h2>
-                    <article>
-                        <h4 class='bold ${p.secondaryColor}-text'>Problem</h4>
-                        <p>${p.summary.problem}</p>
-                    </article>
-                    <article>
-                        <h4 class='bold ${p.secondaryColor}-text'>Goal</h4>
-                        <p>${p.summary.goal}</p>
-                    </article>
-                    <article>
-                        <h4 class='bold ${p.secondaryColor}-text'>Approach</h4>
-                        <p>${p.summary.approach}</p>
-                    </article>
-                    <article>
-                        <h4 class='bold ${p.secondaryColor}-text'>Solution</h4>
-                        <p>${p.summary.solution}</p>
-                    </article>
-                    <article>
-                        <h4 class=' ${p.secondaryColor}-text'>Lessons</h4>
-                            <p>${p.summary.lesson}</p>                    
-                        </article>
-                    <article>
-                        <h4 class='bold ${p.secondaryColor}-text'>Tools Used</h4>
-                        `
-    //INPUT ALL TOOLS USED IN THE PROJECT
-    for (var j in p.tools) {
-        caseStudy +=
-            `
-    <p class='list-item'>${p.tools[j]}</p>
-    `
-    }
-    caseStudy +=
-        `
-                </article>
-        </section>
-    `
-    return caseStudy;
-};
-
-
-
-const content__article = (section) => {
-    return `
-    <article class="content__article" data-section-name="${section.name}">
-        <h2 class="section-name">${section.heading}</h2>
-        <p>${section.content}</p>
-    </article>
-   `
-}
-
-const images = (section) => {
-    let c = '';
-    let img = section.images;
-    c +=
-        
-    `
-    <section class="image__container-${section.size}">
-    `
-    for (let i in img) {
-        c +=
-        `
-            <section>
-                <img src="images/${img[i].name}" alt="">
-                <image-caption class="">${img[i].caption}</image-caption>
-            </section>
-            `
-    }  
-    c +=
-    `
-    </section>
-    `
-
-    return c;
-}
-
-
-const prototype = (section) => {
-    return `
-    <section class="image__container-full">
-        <section class="prototype">
-            ${section.p}
-        </section>
-    </section>
-    `
-}
-
-const button = (section) => {
-    return `
-    <a href="${section.p}" class="text-button" target="_blank" rel=”noreferrer”>${section.name}</a> 
-    `
-}
-
-
-var nextProject = (ne) => {
-    projectPreviews = Array.from(document.querySelectorAll('.project-preview'))
-    let nextPro = projectPreviews.find(n => ne.next == $(n).attr('data-project-name'));
-    // $(nextPro).attr('data-section-name', `next p-roject: ${$(nextPro).data('project-name')}`)
-    let cu = $(`#${ne.href}`);
-    return $(nextPro).clone().appendTo(cu);
-}
-

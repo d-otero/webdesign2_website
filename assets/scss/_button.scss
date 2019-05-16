@@ -177,7 +177,7 @@ button {
     padding: 1rem;
     -ms-flex-item-align: end;
     align-self: flex-end;
-    background: rgba($primary-grey, .5);
+    // background: rgba($primary-grey, .5);
     stroke: $primary-black;
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -261,7 +261,7 @@ button {
     }
 
     &:hover {
-        background: $primary-black;
+        // background: $primary-black;
         stroke: $primary-white;
         opacity: 1;
     }
